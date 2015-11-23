@@ -1,0 +1,6 @@
+{
+  "extends": "legacy",
+  "rules": {
+    "no-var": 2
+  }
+}
