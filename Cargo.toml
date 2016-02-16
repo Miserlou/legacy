@@ -1,0 +1,23 @@
+[package]
+name = "kirk"
+version = "0.0.1"
+authors = ["Samuel Fredrickson <kinghajj@gmail.com>"]
+description = "A highly-flexible thread pool."
+
+[dependencies]
+log = "~0.3.5"
+num_cpus = "~0.2.10"
+clippy = {version = "*", optional = true}
+
+[dependencies.crossbeam]
+git = "https://github.com/aturon/crossbeam.git"
+branch = "master"
+
+[dev-dependencies]
+env_logger = "~0.3.2"
+
+[features]
+default = []
+nightly = []
+plugins = []
+lints = ["clippy", "plugins"]
