@@ -1,0 +1,6 @@
+Package: legacy 
+Title: legacy 
+Version: 0.0.1
+Description:
+  Legacy! 
+Depends: R (>= 3.2.2)
