@@ -1,0 +1,32 @@
+{
+  "modules":{
+    "python":{
+      "virtualenv_path":"env", // this is optional
+      "project_path":"python", // python module search root; relative to workdir
+      "wsgi_application":"legacy.app" // full python name of WSGI entry point
+    },
+  },
+
+  "routing":[
+
+    { // first check static files
+      "prefix":null, // "vhost":".mydomain.com",
+      "handler":"sendfile", "memcache":false,
+      "dir":"static",
+      "charset":"utf-8", // charset for text files
+      "index_file":"index.htm", // directory index
+      "filters":[
+        {"type":"gzip", "compression":4, "cache_dir":"cache/gzip"}
+      ]
+    },
+
+    { // then fallback to python
+      "prefix":null, // "vhost":".mydomain.com",
+      "handler":"python", // "uri":"/my/path/info",
+      "dir":"cache/upload_temp", "size":50000000 /* 50Mb max upload */,
+      "filters":[
+        {"type":"file_cache", "cache_dir":"cache/python"}
+      ]
+    }
+  ]
+}
