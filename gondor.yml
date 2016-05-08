@@ -1,0 +1,8 @@
+site: legacy/legacy 
+buildpack: https://buildpack.gondor.io/python
+branches:
+  master: primary
+  development: staging
+deploy:
+  services:
+    - web
