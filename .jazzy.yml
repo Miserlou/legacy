@@ -1,0 +1,13 @@
+module_name: Legacy 
+module_version: 1.3.0
+readme: README.md
+
+swift_version: 2.2
+xcodebuild-arguments: -scheme,ValueCoding-iOS
+
+custom_categories:
+  - name: ValueCoding
+    children:
+    - CodingType
+    - ValueCoding
+    - SequenceType
