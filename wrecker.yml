@@ -1,0 +1,33 @@
+box: golang
+
+build:
+  steps:
+    - script:
+        name: node-repo
+        code: curl -sL https://deb.nodesource.com/setup_6.x | bash -
+    - script:
+        name: rice
+        code: go get github.com/GeertJohan/go.rice/rice
+    - install-packages:
+        packages: nodejs rsync zip
+    - setup-go-workspace
+    - glide-install
+    - npm-install
+    - nahody/jspm-install:
+        github-auth: $JSPM_INSTALL_GITHUB_AUTH
+    - script:
+        name: make
+        code: make static-build
+    - script:
+        name: copy-output
+        code: rsync -rv "$WERCKER_SOURCE_DIR/termbox" "$WERCKER_OUTPUT_DIR"
+
+deploy:
+  steps:
+    - internal/docker-push:
+        username: $DOCKERHUB_USERNAME
+        password: $DOCKERHUB_PASSWORD
+        tag: latest
+        cmd: /pipeline/source/termbox
+        repository: termbox/termbox
+registry: https://registry.hub.docker.com
