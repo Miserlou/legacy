@@ -1,0 +1,30 @@
+---
+section: main
+debug: true
+
+channels: #bots #cjdns #documentation #peering #fc00 #netops #webdev #fuck-off-ansuz-you-sjw-tool #paris #offmylawn #cs #radar #toronto
+
+floodProtection: true
+floodProtectionDelay: 1000
+
+autoRejoin: true
+autoConnect: true
+
+userName: wotbot
+---
+
+---
+section: irc_network
+
+nick: wotbot
+domain: irc.hypeirc.net
+trigger: .
+---
+
+---
+section: httpd
+
+dbfile: ./test/trust.db
+
+port: 8080
+---
