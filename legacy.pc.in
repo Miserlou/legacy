@@ -1,0 +1,13 @@
+prefix=@prefix@
+exec_prefix=@exec_prefix@
+libdir=@libdir@
+includedir=@includedir@
+
+Name: legacy 
+Description: Legacy 
+Version: @PACKAGE_VERSION@
+Requires.private: @PC_PNG_REQUIRES@
+Conflicts:
+Libs: -L${libdir} -ldaalaenc -ldaalabase
+Libs.private: @PC_PNG_LIBS@ @LIBM@
+Cflags: -I${includedir}/legacy
