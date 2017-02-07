@@ -1,0 +1,14 @@
+package: legacy 
+
+platform:
+  - linux-64
+
+engine:
+  - python=2.7
+  - python=3.4
+
+install:
+  - conda install nose
+
+test:
+- nosetests
