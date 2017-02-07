@@ -1,0 +1,13 @@
+package:
+  name: legacy 
+  version: '0.1.0'
+requirements:
+  build:
+    - python
+  run:
+    - python
+test:
+  requires:
+    - nose
+  commands:
+    - nosetests
